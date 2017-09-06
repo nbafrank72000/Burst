@@ -1,0 +1,16 @@
+<% provide(:title, "Articles List") %>
+
+<div class = "article_index_page" %>
+	<% if @articles.any? %>
+		<%= @articles.each do |article| %>
+			<div class = "content">
+				<div class = "title item"><%= article.title %></div>
+				<div class = "date item"><%= article.created_at.to_date.to_s %></div>
+				<div class = "action item">
+					<div class = "action_edit"><%= link_to "Edit", edit_article_url(article.id), class: "btn-small btn-success" %></div>
+					<div class = "action_delete"><%= link_to "Delete", article_url(article.id), method: :delete, data: {confirm: "You sure?"}, class: "btn-small btn-danger" %></div>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>

@@ -1,0 +1,18 @@
+<% provide(:title, "Post new article") %>
+
+<div class = "new_article_page">
+	<div class = "title">post today's article</div>
+	<div class = "col-md-8 col-md-offset-2">
+		<%= form_for(@article) do |f| %>
+			<%= f.label :title %>
+			<%= f.text_field :title, class: "form-control" %>
+
+			<%= f.label :content %>
+			<%= f.text_area :content, class: "content form-control" %>
+
+			<%= f.submit "Post", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+
+</div>
+

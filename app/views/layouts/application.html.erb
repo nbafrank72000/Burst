@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Burst</title>
+    <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,25 @@
   </head>
 
   <body>
+	  <% flash.each do |message_type, message| %>
+	     <div id = "notice_wrapper">
+	       <div class = "notice-<%= message_type %>"><%= message %></div>
+	     </div>
+	   <% end %>
+
+    <%= render 'layouts/header' %>
     <%= yield %>
+   
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        setTimeout(function(){
+          $('#notice_wrapper').fadeOut("slow", function(){
+            $(this).remove();
+          })
+        }, 2500);
+      });
+    </script>
+
   </body>
 </html>

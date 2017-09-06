@@ -1,0 +1,12 @@
+<% provide(:title, 'Home') %>
+
+<div class = "home_page">
+	
+	<div class = "col-md-8 col-md-offset-2 articles">
+		<% if @articles.any? %>
+			<div class = "topic">articles</div>
+				<%= render @articles %>
+		<% end %>
+	</div>
+
+</div>

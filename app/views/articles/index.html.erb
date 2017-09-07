@@ -1,8 +1,8 @@
 <% provide(:title, "Articles List") %>
 
-<div class = "article_index_page" %>
+<div class = "article_index_page">
 	<% if @articles.any? %>
-		<%= @articles.each do |article| %>
+		<% @articles.each do |article| %>
 			<div class = "content">
 				<div class = "title item"><%= link_to "#{article.title}", article_path(id: article.id) %></div>
 				<div class = "date item"><%= article.created_at.to_date.to_s %></div>

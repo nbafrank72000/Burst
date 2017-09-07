@@ -100,6 +100,31 @@ body{
 	}
 }
 
+.edit_article_page{
+	.title{
+		font-family: 'Copperplate';
+		font-size: 25px;
+		text-align: center;
+	}
+	.content{
+		height: 400px;
+	}
+}
+
+.show_article_page{
+	.title{
+		margin: 20px 10px;
+		font-family: 'Copperplate';
+		font-size: 25px;
+		text-align: center;
+	}
+	.content{
+		margin: 0 30px;
+		font-size: 16px;
+		text-align: justify;
+	}
+}
+
 .home_page{
 	.topic{
 		font-family: 'Copperplate';
@@ -112,6 +137,9 @@ body{
 			font-size: 30px;
 			letter-spacing: 1px;
 			margin-top: 10px;
+			a{
+				text-decoration: none;
+			}
 		}
 		.date{
 			font-family: 'Apple Ligothic';
@@ -121,10 +149,11 @@ body{
 		}
 		.content{
 			font-family: 'Georgia', 'Arial', sans-serif;
-			font-size: 20px;
-			padding: 5px 15px;
+			font-size: 16px;
+			padding: 10px 15px;
+			margin: 10px 0;
 			border-top: 1px solid #000080;
-			border-bottom: 1px solid #000080;
+			text-align: justify;
 		}
 		.action{
 
@@ -144,15 +173,24 @@ body{
 		.item{
 			display: inline-block;
 			font-family: 'Helvetica';
-			font-size: 15px;
+			font-size: 18px;
 		}
 		.title{
 			position: absolute;
 			left: 1%;
+			a{
+				text-decoration: none;
+				color: #000000;
+			}
+			a:hover{
+				letter-spacing: 1px;
+				transition: linear 0.3s;
+			}
 		}
 		.date{
 			position: absolute;
 			left: 33%;
+			font-size: 15px;
 		}
 		.action{
 			position: absolute;

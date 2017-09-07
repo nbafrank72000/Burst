@@ -1,5 +1,11 @@
 <div class = "article">
-	<div class = "title"><%= article.title %></div>
+	<div class = "title"><%= link_to "#{article.title}", article_path(id: article.id) %></div>
 	<div class = "date"><%= article.created_at.to_date.to_s %></div>
 	<div class = "content"><%= article.content %></div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+	});
+</script>

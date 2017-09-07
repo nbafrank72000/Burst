@@ -32,6 +32,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def show
+    @article = Article.find(params[:id])
+  end
+
   def destroy
   	Article.find(params[:id]).destroy
 		flash[:success] = "Album deleted"

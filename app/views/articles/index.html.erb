@@ -4,7 +4,7 @@
 	<% if @articles.any? %>
 		<%= @articles.each do |article| %>
 			<div class = "content">
-				<div class = "title item"><%= article.title %></div>
+				<div class = "title item"><%= link_to "#{article.title}", article_path(id: article.id) %></div>
 				<div class = "date item"><%= article.created_at.to_date.to_s %></div>
 				<div class = "action item">
 					<div class = "action_edit"><%= link_to "Edit", edit_article_url(article.id), class: "btn-small btn-success" %></div>

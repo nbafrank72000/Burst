@@ -1,15 +1,31 @@
 <div class = "header">
   		<div class = "nav_list">
+          <% if logged_in? %>
+            <div class = "item dropdown">
+              <a href="#" class = "dropdown-toggle" data-toggle = "dropdown">Account</a>
+              <div class = "down_list dropdown-menu">
+                <div class = "stack_item"><%= link_to "My Profile", profile_blogs_path %></div>
+                <div class = "stack_item"><%= link_to "Log out", logout_path %></div>
+              </div>
+            </div>
+          <% else %>
+            <div class = "item"><%= link_to "Log in", login_path %></div>
+          <% end %> 
         <div class = "item"><%= link_to "Home", root_url %></div>
         <div class = "item"><%= link_to "Article List", articles_path %></div>
-        <div class = "item"><%= link_to "Post", new_article_path %></div>
-        <div class = "item"><%= link_to "Github", 'https://github.com/nbafrank72000' %></div>
+        <% if logged_in? %>
+          <% if current_user.admin? %>
+            <div class = "item"><%= link_to "Post", new_article_path %></div>
+          <% end %>
+        <% end %>
   			<div class = "item dropdown">
-  				<a href="#" class = "dropdown-toggle" data-toggle = "dropdown">Chih-Chung Fang</a>
+  				<a href="#" class = "dropdown-toggle" data-toggle = "dropdown">About C.C.Fang</a>
   				<div class = "down_list dropdown-menu">
   					<div class = "stack_item"><%= link_to "Profile", profile_blogs_path %></div>
+            <div class = "stack_item"><%= link_to "Github", 'https://github.com/nbafrank72000' %></div>
   					<div class = "stack_item"><%= link_to "Contact", 'mailto:nbafrank72000@gmail.com' %></div>
   				</div>
   			</div>
+
 			</div>
 </div>

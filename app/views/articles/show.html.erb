@@ -3,4 +3,27 @@
 <div class = "show_article_page">
 	<div class = "title"><%= @article.title %></div>
 	<div class = "content"><%= @article.content %></div>
+
+	<div class = "comment">
+		<% if @article.comments.any? %>
+			<div class = "title">comments</div>
+			<div class = "col-md-6 col-md-offset-3">	
+				<%= render @comments %>
+			</div>
+		<% end %>
+		
+		<% if logged_in? %>
+			<div class = "col-md-6 col-md-offset-3">	
+				<%= form_for(@comment) do |f| %>
+					<div class = "comment_box"><%= f.label :content, "Leave your comment" %></div>
+					<%= hidden_field_tag :article_id, @article.id %>
+					<%= hidden_field_tag :user_id, current_user.id %> 
+					<%= f.text_field :content, class: "form-control" %>
+
+					<%= f.submit "Post", class: "btn btn-primary" %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+
 </div>

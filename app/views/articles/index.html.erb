@@ -7,8 +7,12 @@
 				<div class = "title item"><%= link_to "#{article.title}", article_path(id: article.id) %></div>
 				<div class = "date item"><%= article.created_at.to_date.to_s %></div>
 				<div class = "action item">
-					<div class = "action_edit"><%= link_to "Edit", edit_article_url(article.id), class: "btn-small btn-success" %></div>
-					<div class = "action_delete"><%= link_to "Delete", article_url(article.id), method: :delete, data: {confirm: "You sure?"}, class: "btn-small btn-danger" %></div>
+					<% if logged_in? %>
+						<% if current_user.admin? %>
+							<div class = "action_edit"><%= link_to "Edit", edit_article_url(article.id), class: "btn-small btn-success" %></div>
+							<div class = "action_delete"><%= link_to "Delete", article_url(article.id), method: :delete, data: {confirm: "You sure?"}, class: "btn-small btn-danger" %></div>
+						<% end %>
+					<% end %>
 				</div>
 			</div>
 		<% end %>

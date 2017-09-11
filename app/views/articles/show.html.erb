@@ -18,7 +18,7 @@
 					<div class = "comment_box"><%= f.label :content, "Leave your comment" %></div>
 					<%= hidden_field_tag :article_id, @article.id %>
 					<%= hidden_field_tag :user_id, current_user.id %> 
-					<%= f.text_field :content, class: "form-control" %>
+					<%= f.text_field :content, placeholder: "Still not open comment function yet! Coming soon~", class: "form-control" %>
 
 					<%= f.submit "Post", class: "btn btn-primary" %>
 				<% end %>

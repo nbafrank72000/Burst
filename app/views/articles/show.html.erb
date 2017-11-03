@@ -14,11 +14,11 @@
 		
 		<% if logged_in? %>
 			<div class = "col-md-6 col-md-offset-3">	
-				<%= form_for(@comment) do |f| %>
-					<div class = "comment_box"><%= f.label :content, "Leave your comment" %></div>
-					<%= hidden_field_tag :article_id, @article.id %>
-					<%= hidden_field_tag :user_id, current_user.id %> 
-					<%= f.text_field :content, placeholder: "Still not open comment function yet! Coming soon~", class: "form-control" %>
+				<%= form_for(@article, :url => article_path( @article ), :html => { :method => :patch }) do |f| %>
+					<%= render 'shared/error_messages', object: f.object %>
+
+					<div class = "comment_box"><%= f.label :message, "Leave your comment" %></div>
+					<%= f.text_area :message, placeholder: "Leave Your Comments...", name: "comments[content]", class: "form-control" %>
 
 					<%= f.submit "Post", class: "btn btn-primary" %>
 				<% end %>

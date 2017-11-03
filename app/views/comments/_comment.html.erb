@@ -1,2 +1,9 @@
-<div class = "comment_info"><%= comment.user %></div>
-<div class = "comment_content"><%= comment.content %></div>
+	<div class = "comment_info"><%= link_to comment.user.name, comment.user %></div>
+	<div class = "comment_content"><%= comment.message %></div>
+	<% if logged_in? %>
+		<% if current_user.admin? %>
+			<div class = "comment_delete"><%= link_to "Delete", comment_url(comment.id), method: :delete, data: {confirm: "You sure?"}, class: "btn-small btn-danger" %></div>
+		<% elsif current_user == comment.user %>
+			<div class = "comment_delete"><%= link_to "Delete", comment_url(comment.id), method: :delete, data: {confirm: "You sure?"}, class: "btn-small btn-danger" %></div>
+		<% end %>
+	<% end %>

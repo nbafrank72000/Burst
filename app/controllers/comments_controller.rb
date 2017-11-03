@@ -1,14 +1,14 @@
 class CommentsController < ApplicationController
 	
 	def create
-		#@article = Article.find(params[:article_id])
-		#@comment = @article.comments.build(comment_params)
-		#if @comment.save
-      flash[:warning] = "Still not open post comment yet! Comming soon~"
-      #redirect_to article_path(@comment.article.id)
-    #else
-     redirect_to root_url
-    #end
+		
+	end
+
+	def destroy
+		@article = Comment.find(params[:id]).article
+		Comment.find(params[:id]).destroy
+		flash[:success] = "Comment deleted"
+		redirect_to article_path(@article)
 	end
 
 	private

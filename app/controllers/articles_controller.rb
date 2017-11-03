@@ -24,9 +24,14 @@ class ArticlesController < ApplicationController
 
   def update
   	@article = Article.find(params[:id])
-    if @article.update_attributes(article_params)
-      flash[:success] = "Article updated"
-      redirect_to root_url
+    if @article.update(article_params)
+      if !params[:comments].nil?
+        @comment = @article.comments.create!(:message => params[:comments]['content'], :article_id => @article.id, :user_id => current_user.id)
+        flash[:success] = "Article updated"
+        redirect_to article_path(@article.id)
+      else
+
+      end
     else
       render 'edit'
     end
@@ -35,7 +40,6 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comments = @article.comments
-    @comment = @article.comments.build
   end
 
   def destroy
@@ -47,6 +51,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-  	params.require(:article).permit(:title, :content, :picture)
+  	params.permit(:title, :content, :picture, :message)
   end
 end	

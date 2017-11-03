@@ -125,6 +125,33 @@ body{
 		font-size: 16px;
 		text-align: justify;
 	}
+	.comment{
+		position: absolute;
+		width: 100%;
+		left: 0%;
+		.comment_info{
+			font-family: 'Helvetica';
+			font-size: 16px;
+			font-weight: bold;
+			letter-spacing: 1px;
+			a{
+				text-decoration: none;
+			}
+		}
+		.comment_content{
+			display: inline-block;
+			margin: 0;
+			margin-left: 10px;
+			width: 87%;
+			font-size: 14px;
+		}
+		.comment_delete{
+			display: inline-block;
+			margin: 0;
+			width: 10%;
+			text-align: center;
+		}
+	}
 }
 
 .home_page{
@@ -251,13 +278,7 @@ body{
 	}
 }
 
-.comment_info{
-	font-family: 'Helvetica';
-	font-size: 16px;
-}
-.comment_content{
-	font-size: 16px;
-}
+
 
 .comment_box{
 	text-align: center;
